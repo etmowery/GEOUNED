@@ -50,7 +50,6 @@ Here is a complete JSON file specification
             "Facets": false,
             "prnt3PPlane": false,
             "forceNoOverlap": false
-            "axisConeApexPlane":false
         },
         "Tolerances": {
             "relativeTol": false,
