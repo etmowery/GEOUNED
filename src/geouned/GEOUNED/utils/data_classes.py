@@ -74,7 +74,6 @@ class Options:
         self.prnt3PPlane = prnt3PPlane
         self.forceNoOverlap = forceNoOverlap
 
-
     @property
     def forceCylinder(self):
         return self._forceCylinder
