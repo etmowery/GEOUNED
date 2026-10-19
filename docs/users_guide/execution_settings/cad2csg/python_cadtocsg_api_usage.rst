@@ -36,6 +36,7 @@ The following example shows a usage with every attributes specified.
         Facets=False,
         prnt3PPlane=False,
         forceNoOverlap=False,
+        axisConeApexPlane=False,
     )
 
     my_settings = geouned.Settings(
