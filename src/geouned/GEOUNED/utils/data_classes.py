@@ -45,12 +45,6 @@ class Options:
         forceNoOverlap (bool, optional): force no overlaping cell
             definition. Adjacent cell definition are rested from current
             cell definition. Defaults to False.
-        axisConeApexPlane (bool, optional): Also add the apex-splitting plane
-            to cones whose axis is parallel to X, Y or Z. MCNP (KX/KY/KZ) and
-            Serpent cones carry a sheet flag that selects one nappe, but
-            OpenMC x/y/z-cone surfaces are double-napped, so without this
-            plane the unused nappe can leak into the region. Set True when
-            writing OpenMC output. Defaults to False.
     """
 
     def __init__(
@@ -66,7 +60,6 @@ class Options:
         Facets: bool = False,
         prnt3PPlane: bool = False,
         forceNoOverlap: bool = False,
-        axisConeApexPlane: bool = False,
     ):
 
         self.forceCylinder = forceCylinder
@@ -80,17 +73,7 @@ class Options:
         self.Facets = Facets
         self.prnt3PPlane = prnt3PPlane
         self.forceNoOverlap = forceNoOverlap
-        self.axisConeApexPlane = axisConeApexPlane
 
-    @property
-    def axisConeApexPlane(self):
-        return self._axisConeApexPlane
-
-    @axisConeApexPlane.setter
-    def axisConeApexPlane(self, value: bool):
-        if not isinstance(value, bool):
-            raise TypeError(f"geouned.Options.axisConeApexPlane should be a bool, not a {type(value)}")
-        self._axisConeApexPlane = value
 
     @property
     def forceCylinder(self):
