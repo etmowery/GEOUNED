@@ -914,7 +914,9 @@ def add_cone_plane(definition, cones_list, surfaces, universe_box, options, tole
 
     for cid in cones_list:
         cone = surfaces.get_surface(abs(cid))
-        if (
+        # MCNP/Serpent axis-aligned cones carry a sheet flag selecting one nappe.
+        # OpenMC x/y/z-cone are double-napped, so the apex plane is needed too.
+        if not options.axisConeApexPlane and (
             is_parallel(cone.Surf.Axis, x_axis, tolerances.angle)
             or is_parallel(cone.Surf.Axis, y_axis, tolerances.angle)
             or is_parallel(cone.Surf.Axis, z_axis, tolerances.angle)
